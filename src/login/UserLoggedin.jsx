@@ -3,11 +3,11 @@ import { Navigate, Outlet } from "react-router-dom";
 
 
 
-const UserLoggedIn = () => {
+const UserLoggedin = () => {
     const userInfo = localStorage.getItem("value")
     return (
         userInfo ? < Outlet /> : <Navigate to='/calculator' />
     )
 }
 
-export default UserLoggedIn
+export default UserLoggedin
