@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router';
 
 const Calculatorsss = () => {
   const [firstValue, setFirstValue] = useState('');
@@ -7,7 +8,7 @@ const Calculatorsss = () => {
   const [operator, setOperator] = useState('');
   const [result, setResult] = useState('');
   const id = localStorage.getItem("value");
-
+  const  navigate=useNavigate()
   const FetchData = async () => {
     try {
       const res = await axios.get(`http://localhost:5000/operator/${id}`);
@@ -52,8 +53,8 @@ const Calculatorsss = () => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('value');  
-    window.location.href = '/login';   
+    localStorage.removeItem('value'); 
+    navigate("/")    
   };
 
   return (
